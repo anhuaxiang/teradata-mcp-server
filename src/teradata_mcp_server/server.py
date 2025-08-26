@@ -118,8 +118,8 @@ log_config = {
 logger = logging.getLogger("teradata_mcp_server")
 
 # Load tool configuration from packaged profiles.yml (works in wheel/sdist installs)
-with open('profiles.yml', encoding='utf-8') as file:
-    all_profiles = yaml.safe_load(file)
+
+all_profiles = {}
 
 if not profile_name:
     logger.info("No profile specified, load all tools, prompts and resources.")
