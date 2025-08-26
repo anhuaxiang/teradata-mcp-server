@@ -103,23 +103,7 @@ log_config = {
             "level": os.getenv("LOGGING_LEVEL", "WARNING"),
             "formatter": "simple",
             "stream": "ext://sys.stdout"
-        },
-        "file": {
-            "class": "logging.handlers.RotatingFileHandler",
-            "level": "DEBUG",
-            "filename": os.path.join("logs", "teradata_mcp_server.jsonl"),
-            "formatter": "json",
-            "maxBytes": 1000000,
-            "backupCount": 3
-        },
-        "queue_handler": {
-            "class": "logging.handlers.QueueHandler",
-            "handlers": [
-                "console",
-                "file"
-            ],
-            "respect_handler_level": True
-        },
+        }
     },
     "loggers": {
         "teradata_mcp_server": {
