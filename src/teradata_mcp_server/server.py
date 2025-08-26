@@ -111,17 +111,10 @@ log_config = {
             "handlers": ["queue_handler"],
             "propagate": False
         }
-    },
-    "root": {
-        "level": os.getenv("LOGGING_LEVEL", "WARNING"),
-        "handlers": ["console"]
     }
 }
-logging.config.dictConfig(log_config)
-queue_handler = logging.getHandlerByName("queue_handler")
-if queue_handler is not None:
-    queue_handler.listener.start()
-    atexit.register(queue_handler.listener.stop)
+
+
 logger = logging.getLogger("teradata_mcp_server")
 
 # Load tool configuration from packaged profiles.yml (works in wheel/sdist installs)
